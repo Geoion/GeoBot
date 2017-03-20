@@ -30,4 +30,7 @@ def inline_caps(bot, update):
 
 def unknown(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Sorry, I didn't understand that command.")
+
+def help(bot, update):
+    update.message.reply_text("Use /start to test this bot.")
     

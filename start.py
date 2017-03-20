@@ -4,7 +4,7 @@ from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, Inli
 
 from settings import TOKEN
 
-from bot import (start, roll, echo, caps, inline_caps, unknown)
+from bot import (start, roll, echo, caps, inline_caps, unknown, help)
 
 if __name__ == "__main__":
     updater = Updater(token=TOKEN)
@@ -15,4 +15,5 @@ if __name__ == "__main__":
     dispatcher.add_handler(CommandHandler('caps', caps, pass_args=True))
     dispatcher.add_handler(InlineQueryHandler(inline_caps))
     dispatcher.add_handler(MessageHandler(Filters.command, unknown))
+    dispatcher.add_handler(CommandHandler('help', help))
     updater.start_polling()
