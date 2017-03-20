@@ -4,7 +4,7 @@ from telegram.ext import CommandHandler, MessageHandler, Filters
 
 from settings import TOKEN
 
-from bot import (start, roll)
+from bot import (start, roll, echo)
 
 if __name__ == "__main__":
     updater = Updater(token=TOKEN)
