@@ -37,5 +37,6 @@ def unknown(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Sorry, I didn't understand that command.")
 
 def help(bot, update):
-    bot.sendMessage(chat_id=update.message.chat_id, text="Use /start to test this bot.")
+    bot.sendMessage(chat_id=update.message.chat_id, 
+                    text="""Use /start to test this bot.\nuse /roll feeling lucky""")
     
