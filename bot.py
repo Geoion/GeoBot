@@ -9,3 +9,8 @@ def roll(bot, update):
 
 def echo(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text=update.message.text)
+
+def caps(bot, update, args):
+    text_caps = ' '.join(args).upper()
+    bot.sendMessage(chat_id=update.message.chat_id, text=text_caps)
+    
