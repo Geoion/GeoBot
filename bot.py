@@ -6,3 +6,6 @@ def start(bot, update):
 
 def roll(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="您的点数为：{} (1-100)".format(random.choice(range(1,101))))
+
+def echo(bot, update):
+    bot.sendMessage(chat_id=update.message.chat_id, text=update.message.text)

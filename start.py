@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from telegram.ext import Updater
-from telegram.ext import CommandHandler
+from telegram.ext import CommandHandler, MessageHandler, Filters
 
 from settings import TOKEN
 
@@ -11,4 +11,5 @@ if __name__ == "__main__":
     dispatcher = updater.dispatcher
     dispatcher.add_handler(CommandHandler('start', start))
     dispatcher.add_handler(CommandHandler('roll', roll))
+    dispatcher.add_handler(MessageHandler(Filters.text, echo))
     updater.start_polling()
