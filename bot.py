@@ -31,7 +31,7 @@ def inline_caps(bot, update):
 def userinfo(bot, update):
     user_info = update.message.from_user
     bot.sendMessage(chat_id=update.message.chat_id, 
-                    text="{}".format(", ".join(["{}: {}".format(k,v) for k,v in user_info.items()])))
+                    text=", ".join(["{}: {}".format(k,v) for k,v in user_info.items()]))
 
 def unknown(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Sorry, I didn't understand that command.")
