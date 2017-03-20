@@ -2,7 +2,7 @@
 import random 
 
 def start(bot, update):
-    bot.sendMessage(chat_id=update.message.chat_id, text="I'm a bot, please talk to me!")
+    bot.sendMessage(chat_id=update.message.chat_id, text="I'm a bot, please talk to me! @{}".format(update.message.from_user["username"]))
 
 def roll(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="您的点数为：{} (1-100)".format(random.choice(range(1,101))))
@@ -27,6 +27,11 @@ def inline_caps(bot, update):
         )
     )
     bot.answerInlineQuery(update.inline_query.id, results)
+
+def userinfo(bot, update):
+    user_info = update.message.from_user
+    bot.sendMessage(chat_id=update.message.chat_id, 
+                    text="".format(",".join(["{}:{}".format(k,v) for k,v in user_info.items()])))
 
 def unknown(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Sorry, I didn't understand that command.")
