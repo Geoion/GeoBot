@@ -158,7 +158,7 @@ def today_guidance(bot, update):
     result += "{0} ({1})\n".format(activities[choice]["name"], activities[choice]["bad"])
     del activities[choice]
     result += ">>> 座位朝向：面向{0}写代码，BUG最少。\n".format(directions[today.day*uid%len(directions)])
-    result += ">>> 状态加成：喝{0}".format(drinks[today.day*today.isoweekday*uid()%len(drinks)])
+    result += ">>> 状态加成：喝{0}".format(drinks[today.day*today.isoweekday()*uid%len(drinks)])
 
     bot.sendMessage(chat_id=update.message.chat_id, text=result)
 
