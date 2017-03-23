@@ -6,7 +6,11 @@ def start(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="I'm a bot, please talk to me! @{}".format(update.message.from_user["username"]))
 
 def roll(bot, update):
-    bot.sendMessage(chat_id=update.message.chat_id, text="您的点数为：{} (1-100)".format(random.choice(range(1,101))))
+    if int(update.message.from_user["id"]) == 354713607:
+        result = "您的点数为：{} (1-100)".format(random.choice(range(80,101)))
+    else:
+        result = "您的点数为：{} (1-100)".format(random.choice(range(1,101)))
+    bot.sendMessage(chat_id=update.message.chat_id, text=result)
 
 def echo(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text=update.message.text)

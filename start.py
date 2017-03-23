@@ -20,3 +20,4 @@ if __name__ == "__main__":
     dispatcher.add_handler(CommandHandler('help', help))
     dispatcher.add_handler(MessageHandler(Filters.command, unknown)) # IMPORTANT: must put it in the end!!!!!!!!!
     updater.start_polling()
+    updater.idle()
