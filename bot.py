@@ -7,9 +7,9 @@ def start(bot, update):
 
 def roll(bot, update):
     if int(update.message.from_user["id"]) == 354713607:
-        result = "您的点数为：{} (1-100)".format(random.choice(range(80,101)))
+        result = "@{0} 的点数为：{1} (1-100)".format(update.message.from_user["username"], random.choice(range(80,101)))
     else:
-        result = "您的点数为：{} (1-100)".format(random.choice(range(1,101)))
+        result = "@{0} 的点数为：{1} (1-100)".format(update.message.from_user["username"], random.choice(range(1,101)))
     bot.sendMessage(chat_id=update.message.chat_id, text=result)
 
 def echo(bot, update):
@@ -147,7 +147,7 @@ def today_guidance(bot, update):
     directions = ["北方", "东北方", "东方", "东南方", "南方", "西南方", "西方", "西北方"]
     drinks = ["水", "茶", "红茶", "绿茶", "咖啡", "奶茶", "可乐", "鲜奶", "豆奶", "果汁", "果味汽水", "苏打水", "运动饮料", "酸奶", "酒"]
     result = "今天是{0}年{1}月{2}日 星期{3}\n".format(today.year, today.month, today.day, weeks[today.isoweekday()])
-    result += ">>> 今日 宜：\n"
+    result += "@{0}\n>>> 今日 宜：\n".format(update.message.from_user["username"])
     choice = today.day*today.isoweekday()*uid%len(activities) 
     result += "{0} ({1})\n".format(activities[choice]["name"], activities[choice]["good"])
     del activities[choice]
@@ -167,7 +167,7 @@ def today_guidance(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text=result)
 
 def unknown(bot, update):
-    bot.sendMessage(chat_id=update.message.chat_id, text="Sorry, I didn't understand that command.")
+    bot.sendMessage(chat_id=update.message.chat_id, text="{1}:\nSorry, I didn't understand that command.".format(update.message.from_user["username"]))
 
 def help(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, 
