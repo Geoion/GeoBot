@@ -4,7 +4,7 @@ from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, Inli
 
 from settings import TOKEN
 
-from bot import (start, roll, today_guidance, huanqian, echo, caps, inline_caps, unknown, help, userinfo)
+from bot import (start, roll, today_guidance, huanqian, echo, caps, inline_caps, dream, unknown, help, userinfo)
 
 if __name__ == "__main__":
     updater = Updater(token=TOKEN)
@@ -13,6 +13,7 @@ if __name__ == "__main__":
     dispatcher.add_handler(CommandHandler('roll', roll))
     dispatcher.add_handler(CommandHandler('today', today_guidance))
     dispatcher.add_handler(CommandHandler('huanqian', huanqian))
+    dispatcher.add_handler(CommandHandler('dream', dream))
     dispatcher.add_handler(MessageHandler(Filters.text, echo))
     dispatcher.add_handler(CommandHandler('caps', caps, pass_args=True))
     dispatcher.add_handler(InlineQueryHandler(inline_caps))
