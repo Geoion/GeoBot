@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 from telegram import InlineQueryResultArticle, InputTextMessageContent
 from telegram.ext import (Updater, CommandHandler, MessageHandler, Filters, InlineQueryHandler)
 
