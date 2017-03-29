@@ -171,14 +171,14 @@ def dream(bot, update):
     redno_list = []
     blueno = []
     while count < 6:
-        temp = choice(range(1, 34))
+        temp = random.choice(range(1, 34))
         if temp in redno_list:
             continue
         else:
             redno_list.append(temp)
             count = count + 1
 
-    blueno = choice(range(1, 17))
+    blueno = random.choice(range(1, 17))
     redno_list.sort()
     redno = ",".join([str(i) for i in redno_list])
     bot.sendMessage(chat_id=update.message.chat_id, text="{} 的梦想号码(双色球)是：\n红球 {}，蓝球 {}".format(update.message.from_user["username"], redno, blueno))
